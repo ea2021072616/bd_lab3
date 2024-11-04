@@ -21,7 +21,7 @@ jobs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.MY_PAT }}  # Usando el PAT como secreto
 
     - name: Build Docker image
       run: |
