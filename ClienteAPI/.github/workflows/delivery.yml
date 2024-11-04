@@ -1,0 +1,37 @@
+name: Delivery Workflow
+
+on:
+  workflow_dispatch:  # Permitir la activación manual desde la interfaz de GitHub
+
+jobs:
+  delivery:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Paso 1: Check out the repository
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      # Paso 2: Log in to Docker Hub
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      # Paso 3: Pull Docker Image
+      - name: Pull Docker Image
+        run: |
+          docker pull erickayma/clienteapi:latest
+
+      # Paso 4: Run Docker Container
+      - name: Run Docker Container
+        run: |
+          docker run -d --name clienteapi -p 80:80 erickayma/clienteapi:latest
+
+      # Paso 5: Wait for the application to start
+      - name: Wait for application to start
+        run: |
+          sleep 10  # Espera 10 segundos para asegurarse de que la aplicación esté en funcionamiento
+
+      # Paso 6: Make a GET request to Prometheus
+      - name: Get metrics from Prometheus
+        run: |
+          curl -G http://localhost:9090/api/v1/query --data-urlencode 'query=health_status{service="SQL Database Health Check"}'
