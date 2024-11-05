@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MuIDw32Wqew=",
+  "dgSpecHash": "WiLe9m0mNRk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\TheGoat\\Desktop\\LabsinEncargado\\ClienteAPI\\ClienteAPI.csproj",
+  "projectFilePath": "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TheGoat\\.nuget\\packages\\aspnetcore.healthchecks.sqlserver\\7.0.0\\aspnetcore.healthchecks.sqlserver.7.0.0.nupkg.sha512",
     "C:\\Users\\TheGoat\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

@@ -10,6 +10,11 @@ scrape_configs:
 
   - job_name: 'health'
     scheme: http
-    metrics_path: /health
+    metrics_path: /healthz
     static_configs:
       - targets: ['host.docker.internal:5000']
+
+  - job_name: 'cambio_monedas'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:8080']

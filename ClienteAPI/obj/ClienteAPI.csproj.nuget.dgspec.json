@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TheGoat\\Desktop\\LabsinEncargado\\ClienteAPI\\ClienteAPI.csproj": {}
+    "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TheGoat\\Desktop\\LabsinEncargado\\ClienteAPI\\ClienteAPI.csproj": {
+    "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TheGoat\\Desktop\\LabsinEncargado\\ClienteAPI\\ClienteAPI.csproj",
+        "projectUniqueName": "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj",
         "projectName": "ClienteAPI",
-        "projectPath": "C:\\Users\\TheGoat\\Desktop\\LabsinEncargado\\ClienteAPI\\ClienteAPI.csproj",
+        "projectPath": "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj",
         "packagesPath": "C:\\Users\\TheGoat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TheGoat\\Desktop\\LabsinEncargado\\ClienteAPI\\obj\\",
+        "outputPath": "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TheGoat\\AppData\\Roaming\\NuGet\\NuGet.Config"

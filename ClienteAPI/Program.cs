@@ -5,7 +5,6 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System.Text.Json;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -32,6 +31,36 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseHttpMetrics();
+
+// Métricas para cambios de moneda
+var TasaCambioMedia = Metrics.CreateGauge("cambio_monedas_tasa_media", "Tasa promedio de cambio de moneda.");
+var TasaCambioMaxima = Metrics.CreateGauge("cambio_monedas_tasa_maxima", "Tasa máxima de cambio de moneda registrada.");
+var TasaCambioMinima = Metrics.CreateGauge("cambio_monedas_tasa_minima", "Tasa mínima de cambio de moneda registrada.");
+var TotalLecturasCambio = Metrics.CreateCounter("cambio_monedas_total_lecturas", "Total de lecturas de tasa de cambio.");
+
+// Simular la recolección de datos de cambio de moneda
+app.Lifetime.ApplicationStarted.Register(() =>
+{
+    var random = new Random();
+    Task.Run(async () =>
+    {
+        while (true)
+        {
+            // Generar datos de tasa de cambio aleatoria entre 18 y 25
+            var tasaCambio = random.NextDouble() * (25 - 18) + 18;
+
+            // Actualizar las métricas de Prometheus
+            TasaCambioMedia.Set(tasaCambio);
+            TasaCambioMaxima.Set(Math.Max(tasaCambio, TasaCambioMaxima.Value));
+            TasaCambioMinima.Set(Math.Min(tasaCambio, TasaCambioMinima.Value));
+            TotalLecturasCambio.Inc();
+
+            // Esperar 5 segundos antes de la siguiente lectura
+            await Task.Delay(5000);
+        }
+    });
+});
 
 // Agregar métricas de HealthCheck para Prometheus
 app.UseHealthChecks("/health", new HealthCheckOptions
@@ -54,7 +83,6 @@ app.UseHealthChecks("/health", new HealthCheckOptions
         await context.Response.WriteAsync(result);
     }
 });
-app.UseHttpMetrics();
 
 app.MapControllers();
 app.Run();
