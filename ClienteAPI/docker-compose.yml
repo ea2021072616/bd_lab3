@@ -1,3 +1,4 @@
+version: '3'
 services:
   bd:
     image: "mcr.microsoft.com/mssql/server"
@@ -9,32 +10,47 @@ services:
       - SA_PASSWORD=UPT.2024
     volumes:
       - ./db:/tmp
+    networks:
+      - app_network  # Especificamos la red personalizada
+
   api:
     build: .
     container_name: api_clientes
     ports:
-      - "5000:8080"
+      - "5000:8080"  # Asegúrate de que el puerto 8080 está expuesto en tu aplicación API
     environment:
       - ConnectionStrings__ClienteDB=Server=bd_clientes;Database=BD_CLIENTES;User Id=sa;Password=UPT.2024;TrustServerCertificate=true
     depends_on:
       - bd
+    networks:
+      - app_network  # Especificamos la red personalizada
+
   prometheus:
     container_name: prometheus
     image: prom/prometheus
     restart: always
     ports:
-      - 9090:9090
+      - 9090:9090  # Exponer puerto 9090 para acceder a la interfaz de Prometheus
     volumes:
       - ./metrics/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
     depends_on:
       - api
+    networks:
+      - app_network  # Especificamos la red personalizada
+
   grafana:
     container_name: grafana
     image: grafana/grafana
     ports:
-      - "3000:3000"
+      - "3000:3000"  # Exponer puerto 3000 para acceder a la interfaz de Grafana
     volumes:
       - ./metrics/grafana_ds:/etc/grafana/provisioning/datasources
       - ./metrics/grafana_db:/etc/grafana/provisioning/dashboards
     depends_on:
       - prometheus
+    networks:
+      - app_network  # Especificamos la red personalizada
+
+networks:
+  app_network:
+    driver: bridge  # Usamos el driver de red bridge para facilitar la comunicación entre contenedores

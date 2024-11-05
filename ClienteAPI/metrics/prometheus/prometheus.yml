@@ -1,20 +1,20 @@
 global:
-  scrape_interval: 3s
+  scrape_interval: 3s  # Intervalo de scraping global
 
 scrape_configs:
   - job_name: 'apiCliente'
     scheme: http
     metrics_path: /metrics
     static_configs:
-      - targets: ['host.docker.internal:5000']
+      - targets: ['api_clientes:8080']  # Acceder a la API por nombre de contenedor y puerto
 
   - job_name: 'health'
     scheme: http
     metrics_path: /healthz
     static_configs:
-      - targets: ['host.docker.internal:5000']
+      - targets: ['api_clientes:5000']  # Acceder al endpoint de salud de la API
 
   - job_name: 'cambio_monedas'
     scrape_interval: 5s
     static_configs:
-      - targets: ['localhost:8080']
+      - targets: ['localhost:8080']  # O ajusta si hay otro servicio para tasas de cambio

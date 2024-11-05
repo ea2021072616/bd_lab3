@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj": {}
+    "C:\\Users\\dylan\\OneDrive\\Escritorio\\Nueva carpeta (12)\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj": {
+    "C:\\Users\\dylan\\OneDrive\\Escritorio\\Nueva carpeta (12)\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj",
+        "projectUniqueName": "C:\\Users\\dylan\\OneDrive\\Escritorio\\Nueva carpeta (12)\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj",
         "projectName": "ClienteAPI",
-        "projectPath": "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj",
-        "packagesPath": "C:\\Users\\TheGoat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TheGoat\\Desktop\\bd_lab3\\ClienteAPI\\obj\\",
+        "projectPath": "C:\\Users\\dylan\\OneDrive\\Escritorio\\Nueva carpeta (12)\\bd_lab3\\ClienteAPI\\ClienteAPI.csproj",
+        "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dylan\\OneDrive\\Escritorio\\Nueva carpeta (12)\\bd_lab3\\ClienteAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\TheGoat\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -45,7 +45,11 @@
           "dependencies": {
             "AspNetCore.HealthChecks.SqlServer": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[8.0.2, )"
+            },
+            "AspNetCore.HealthChecks.UI": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             },
             "Microsoft.AspNetCore.Diagnostics.HealthChecks": {
               "target": "Package",
@@ -95,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
