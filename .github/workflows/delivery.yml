@@ -36,4 +36,4 @@ jobs:
 
     - name: Make GET request to Prometheus
       run: |
-        curl -G 'http://localhost:9090/api/v1/query' --data-urlencode 'query=up'
+        curl -G 'http://localhost:9090/api/v1/query' --data-urlencode 'query=cambio_monedas_tasa_media'
